@@ -87,7 +87,19 @@ const checkIfAnyMovieHasRating = (m, r = 'G') => {
       // Toy Story 4
     };
  */
-function findById() {}
+const findById = (m, id) => {
+  //handle the error first
+  //if there is nothing in the movies array
+  if (!m.length){
+    //throw an error
+    throw "Error 404: Movie not found."
+  }else{
+    //else, use .find to find and return the first movie that matches the id, or null if there are no matches
+    return m.find(e => e.imdbID === id) || null
+  }
+}
+
+
 
 /**
  * filterByGenre()

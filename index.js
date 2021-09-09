@@ -123,7 +123,16 @@ const findById = (m, id) => {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+const filterByGenre = (m, g) => {
+  //if there are no movies in our array, throw an error
+  if (!m.length){
+    throw "Error 404: Movie not found."
+    //else, use .filter collect and return all the movies of that genre
+  } else {
+    //.lowercase for case insensitivity
+   return m.filter(e => e.genre.toLowerCase().includes(g.toLowerCase()))
+  }
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()

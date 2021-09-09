@@ -163,8 +163,8 @@ const getAllMoviesReleasedAtOrBeforeYear = (m, y) => {
   if (!m.length){
     throw "Error 404: Movie not found."
   } else {
-  //else, use .filter to collect and return the movies who's release date is less than the year
-  return m.filter(e => Number(e.released.slice(-4)) <= y)
+  //else, use .filter to collect and return the movies who's release date is equal to or less than the year
+  return m.filter(e => Number(e.released.slice(-4)) <= y);
   }
 }
 
@@ -192,7 +192,16 @@ const getAllMoviesReleasedAtOrBeforeYear = (m, y) => {
       { "James and the Giant Peach": "91%" },
     ];
  */
-function getRottenTomatoesScoreByMovie() {}
+const getRottenTomatoesScoreByMovie = (m) => {
+//if the movies array is empty, throw and error
+  if (!m.length){
+    throw "Error 404: Movie not found."
+  } else {
+  //else, use .map to to iterate through the array return an array of objects, using .find to get the info from ratings
+    return m.map(e => new Object({[e.title]: e.ratings.find(r => r.source === "Rotten Tomatoes").value})
+    )
+  }
+}
 
 // Do not change anything below this line.
 module.exports = {

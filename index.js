@@ -158,7 +158,15 @@ const filterByGenre = (m, g) => {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+const getAllMoviesReleasedAtOrBeforeYear = (m, y) => {
+  //if movies array is empty, throw an error
+  if (!m.length){
+    throw "Error 404: Movie not found."
+  } else {
+  //else, use .filter to collect and return the movies who's release date is less than the year
+  return m.filter(e => Number(e.released.slice(-4)) <= y)
+  }
+}
 
 /**
  * getRottenTomatoesScoreByMovie()

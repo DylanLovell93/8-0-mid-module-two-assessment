@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -59,7 +60,16 @@ const getAllMovieTitles = (m) => {
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating() {}
+const checkIfAnyMovieHasRating = (m, r = 'G') => {
+  //if there is something in the movie array
+  if (m.length){
+    //use .some to determine if the any of the movies have a rating, and return the result
+    return m.some(e => e.rated === r)
+  // else, throw an error
+  } else {
+    throw "Error 404: Movies not found."
+  }
+}
 
 /**
  * findById()
